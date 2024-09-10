@@ -1,6 +1,6 @@
 import { NavLink, Route, Routes } from "react-router-dom";
 import styled from "styled-components";
-import ReactVirtualizedList from "../../react-virtualized-list/ReactVirtualizedList";
+import ReactVirtualizedList from "../../virtualized-list/VirtualizedList";
 import SidePanel from "../side-panel/SidePanel";
 
 const Container = styled.div`
@@ -17,6 +17,7 @@ const Container = styled.div`
   }
 `;
 
+// Todo - Make a Layout for the webApp
 export default function Content() {
   return (
     <Container>
@@ -25,7 +26,7 @@ export default function Content() {
           className={({ isActive, isPending }) => {
             return isActive ? "active" : isPending ? "pending" : "";
           }}
-          to="/react-virtualized-list"
+          to="/virtualized-list"
         >
           React Virtualized List
         </NavLink>
@@ -34,8 +35,8 @@ export default function Content() {
       <main>
         <Routes>
           <Route
-            path="/react-virtualized-list"
-            element={<ReactVirtualizedList />}
+            path="/virtualized-list"
+            element={<ReactVirtualizedList props />}
           />
         </Routes>
       </main>
