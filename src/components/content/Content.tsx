@@ -1,6 +1,6 @@
 import { NavLink, Route, Routes } from "react-router-dom";
 import styled from "styled-components";
-import ReactVirtualizedList from "../../virtualized-list/VirtualizedList";
+import ReactVirtualizedList from "../organisms/virtualized-list/VirtualizedList";
 import SidePanel from "../side-panel/SidePanel";
 
 const Container = styled.div`
