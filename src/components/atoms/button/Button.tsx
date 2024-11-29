@@ -1,48 +1,241 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
+import styled from 'styled-components';
+import colors from '../../../colors';
 import './button.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 export interface ButtonProps {
   /**
+   * The color
+   */
+  color?: 'primary' | 'secondary' | 'success' | 'warning' | 'error' /**
    * Is this the principal call to action on the page?
-   */
-  primary?: boolean;
+   */;
+  variant?: 'text' | 'contained' | 'outlined';
   /**
-   * What background color to use
+   * What styles to use
    */
-  backgroundColor?: string;
+  style?: object;
+  /**
+   * What classname to use
+   */
+  classnames?: string;
   /**
    * How large should the button be?
    */
   size?: 'small' | 'medium' | 'large';
   /**
+   * How large should the button be?
+   */
+  rounded?: boolean;
+  /**
    * Button contents
    */
   label: string;
+  /**
+   * Add icon at the start of the Button
+   */
+  startIcon?: ReactElement /**
+   * Add icon at the end of the Button
+   */;
+  endIcon?: ReactElement;
   /**
    * Optional click handler
    */
   onClick?: () => void;
 }
 
+type StyledButtonProps = {
+  // color: string;
+  // size: string;
+  // rounded: boolean;
+};
+
+const StyledButton = styled('button')<StyledButtonProps>`
+  border: none;
+  display: block;
+  width: 100%;
+
+  &.small {
+    padding: 8px 16px;
+  }
+  &.medium {
+    font-size: 14px;
+    padding: 10px 18px;
+  }
+  &.large {
+    font-size: 20px;
+    padding: 12px 28px;
+  }
+  &.rounded {
+    border-radius: 25px;
+  }
+
+  &.primary {
+    background-color: ${colors.primary.main};
+    color: ${colors.primary.light};
+    &:hover {
+      background-color: ${colors.primary.dark};
+    }
+  }
+  &.secondary {
+    background-color: ${colors.secondary.main};
+    color: ${colors.secondary.light};
+    &:hover {
+      background-color: ${colors.secondary.dark};
+    }
+  }
+  &.success {
+    background-color: ${colors.success.main};
+    color: ${colors.success.light};
+    &:hover {
+      background-color: ${colors.success.dark};
+    }
+  }
+  &.warning {
+    background-color: ${colors.warning.main};
+    color: ${colors.warning.light};
+    &:hover {
+      background-color: ${colors.warning.dark};
+    }
+  }
+  &.error {
+    background-color: ${colors.error.main};
+    color: ${colors.error.light};
+    &:hover {
+      background-color: ${colors.error.dark};
+    }
+  }
+
+  &.outlined {
+    background-color: transparent;
+    border-style: solid;
+    border-width: 2px;
+    font-weight: 600;
+
+    &.primary {
+      border-color: ${colors.primary.main};
+      color: ${colors.primary.main};
+      &:hover {
+        background-color: ${colors.primary.main}20;
+      }
+    }
+    &.secondary {
+      border-color: ${colors.secondary.main};
+      color: ${colors.secondary.main};
+      &:hover {
+        background-color: ${colors.secondary.main}20;
+      }
+    }
+    &.success {
+      border-color: ${colors.success.main};
+      color: ${colors.success.main};
+      &:hover {
+        background-color: ${colors.success.main}20;
+      }
+    }
+    &.warning {
+      border-color: ${colors.warning.main};
+      color: ${colors.warning.main};
+      &:hover {
+        background-color: ${colors.warning.main}20;
+      }
+    }
+    &.error {
+      border-color: ${colors.error.main};
+      color: ${colors.error.main};
+      &:hover {
+        background-color: ${colors.error.main}20;
+      }
+    }
+  }
+
+  &.text {
+    background-color: transparent;
+    font-weight: 600;
+    &.primary {
+      color: ${colors.primary.main};
+      &:hover {
+        background-color: ${colors.primary.main}20;
+      }
+    }
+    &.secondary {
+      color: ${colors.secondary.main};
+      &:hover {
+        background-color: ${colors.secondary.main}20;
+      }
+    }
+    &.success {
+      color: ${colors.success.main};
+      &:hover {
+        background-color: ${colors.success.main}20;
+      }
+    }
+    &.warning {
+      color: ${colors.warning.main};
+      &:hover {
+        background-color: ${colors.warning.main}20;
+      }
+    }
+    &.error {
+      color: ${colors.error.main};
+      &:hover {
+        background-color: ${colors.error.main}20;
+      }
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+  &:focus {
+    outline: solid 2px blue;
+  }
+
+  .startIcon {
+    margin-right: 8px;
+  }
+
+  .endIcon {
+    position: absolute;
+    right: 30px;
+    left: auto;
+  }
+`;
+
 /**
  * Primary UI component for user interaction
  */
 export const Button = ({
-  primary = false,
+  classnames,
+  color = 'primary',
+  style,
   size = 'medium',
-  backgroundColor,
+  rounded = false,
   label,
+  variant = 'contained',
+  startIcon,
+  endIcon,
+  onClick,
   ...props
 }: ButtonProps) => {
-  const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
+  const classNames = [color, size, variant, rounded && 'rounded', classnames]
+    .toString()
+    .split(',')
+    .join(' ');
+
   return (
-    <button
+    <StyledButton
       type="button"
-      className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
-      style={{ backgroundColor }}
+      style={style}
+      className={classNames}
+      onClick={onClick}
       {...props}
     >
+      {startIcon}
       {label}
-    </button>
+      {endIcon}
+    </StyledButton>
   );
 };

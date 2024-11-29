@@ -14,7 +14,11 @@ const meta = {
   tags: ['autodocs'],
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {
-    backgroundColor: { control: 'color' },
+    style: { control: 'object' },
+    color: { control: 'select' },
+    size: { control: 'select' },
+    variant: { control: 'select' },
+    onClick: { action: 'clicked' },
   },
   // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
   args: { onClick: fn() },
@@ -26,27 +30,91 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Primary: Story = {
   args: {
-    primary: true,
-    label: 'Button',
+    color: 'primary',
+    label: 'Primary',
   },
 };
 
 export const Secondary: Story = {
   args: {
-    label: 'Button',
+    color: 'secondary',
+    label: 'Secondary',
+  },
+};
+
+export const Success: Story = {
+  args: {
+    color: 'success',
+    label: 'Success',
+  },
+};
+
+export const Warning: Story = {
+  args: {
+    color: 'warning',
+    label: 'Warning',
+  },
+};
+
+export const Error: Story = {
+  args: {
+    color: 'error',
+    label: 'Error',
   },
 };
 
 export const Large: Story = {
   args: {
+    color: 'primary',
     size: 'large',
-    label: 'Button',
+    label: 'Large',
+    rounded: false,
+  },
+};
+
+export const Medium: Story = {
+  args: {
+    color: 'primary',
+    size: 'medium',
+    label: 'Medium',
+    rounded: false,
   },
 };
 
 export const Small: Story = {
   args: {
+    color: 'primary',
     size: 'small',
-    label: 'Button',
+    label: 'Small',
+    rounded: false,
+  },
+};
+
+export const Rounded: Story = {
+  args: {
+    rounded: true,
+    color: 'primary',
+    size: 'small',
+    label: 'Small',
+  },
+};
+
+export const Outlined: Story = {
+  args: {
+    rounded: true,
+    color: 'primary',
+    size: 'medium',
+    label: 'Outlined',
+    variant: 'outlined',
+  },
+};
+
+export const Text: Story = {
+  args: {
+    rounded: false,
+    color: 'primary',
+    size: 'medium',
+    label: 'Text',
+    variant: 'text',
   },
 };
