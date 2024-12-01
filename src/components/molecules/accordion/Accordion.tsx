@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
-import { Button } from '../../atoms/button/Button';
+import { Button, HeadingTag } from '../../../components';
 import colors from '../../../colors';
 
 interface AccordionInterface {
@@ -17,10 +17,7 @@ const Wrapper = styled('div')`
 
   .heading {
     margin: 0;
-
-    button {
-      text-align: left;
-    }
+    border-bottom: solid 1px ${colors.primary.light};
   }
 
   .accordion-panel {
@@ -31,29 +28,41 @@ const Wrapper = styled('div')`
   }
 `;
 
-export default function Accordion({ headingLevel, items }: AccordionInterface) {
-  const HeadingTag: any = `${headingLevel}`;
+export default function Accordion({ items }: AccordionInterface) {
+  const [selectedPanel, setSelectedPanel] = useState<number | null>(null);
+
+  const handleOnClick = (currentPanel: number) => {
+    setSelectedPanel(currentPanel === selectedPanel ? null : currentPanel);
+  };
+
   return (
     <Wrapper>
-      {items.map(({ title, panel }: any) => {
+      {items.map(({ title, panelContent }: any, idx: number) => {
         return (
-          <>
-            <HeadingTag className="heading">
+          <div key={title}>
+            <HeadingTag headingLevel="h3" classNames="heading">
               <Button
                 label={title}
-                endIcon={
+                endSlot={
                   <FontAwesomeIcon
-                    className="endIcon"
+                    className="endSlot"
                     icon={faPlus}
                     color={colors.primary.light}
                   />
                 }
+                onClick={() => handleOnClick(idx)}
               />
             </HeadingTag>
-            <div role="region" className="accordion-panel">
-              {panel}
-            </div>
-          </>
+            {selectedPanel === idx && (
+              <div
+                id={`panel-${idx + 1}`}
+                role="region"
+                className="accordion-panel"
+              >
+                {panelContent}
+              </div>
+            )}
+          </div>
         );
       })}
     </Wrapper>
