@@ -2,8 +2,6 @@ import React, { ReactElement } from 'react';
 import styled from 'styled-components';
 import colors from '../../../colors';
 import './button.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 export interface ButtonProps {
   /**
@@ -36,14 +34,14 @@ export interface ButtonProps {
   /**
    * Add icon at the start of the Button
    */
-  startIcon?: ReactElement /**
+  startSlot?: ReactElement /**
    * Add icon at the end of the Button
    */;
-  endIcon?: ReactElement;
+  endSlot?: ReactElement;
   /**
    * Optional click handler
    */
-  onClick?: () => void;
+  onClick?: () => void | Function;
 }
 
 type StyledButtonProps = {
@@ -54,7 +52,8 @@ type StyledButtonProps = {
 
 const StyledButton = styled('button')<StyledButtonProps>`
   border: none;
-  display: block;
+  display: flex;
+  justify-content: space-between;
   width: 100%;
 
   &.small {
@@ -193,14 +192,12 @@ const StyledButton = styled('button')<StyledButtonProps>`
     outline: solid 2px blue;
   }
 
-  .startIcon {
+  .startSlot {
     margin-right: 8px;
   }
 
-  .endIcon {
-    position: absolute;
-    right: 30px;
-    left: auto;
+  .endSlot {
+    display: flex;
   }
 `;
 
@@ -215,8 +212,8 @@ export const Button = ({
   rounded = false,
   label,
   variant = 'contained',
-  startIcon,
-  endIcon,
+  startSlot,
+  endSlot,
   onClick,
   ...props
 }: ButtonProps) => {
@@ -233,9 +230,9 @@ export const Button = ({
       onClick={onClick}
       {...props}
     >
-      {startIcon}
+      {startSlot}
       {label}
-      {endIcon}
+      {endSlot}
     </StyledButton>
   );
 };

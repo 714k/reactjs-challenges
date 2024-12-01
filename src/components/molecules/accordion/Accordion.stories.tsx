@@ -29,17 +29,17 @@ export const Primary: Story = {
     items: [
       {
         title: 'Item 1',
-        panel:
+        panelContent:
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dapibus sit amet sapien sit amet semper. Nulla ullamcorper dignissim quam, a aliquam velit rhoncus at. Nulla et ante hendrerit, accumsan lectus et, suscipit metus. Sed euismod, felis at sagittis pretium, tellus nulla dignissim quam, commodo euismod purus enim at libero. Phasellus in feugiat mauris. Maecenas non dolor quis nisl dignissim auctor. Aenean purus mauris, dapibus id pharetra eu, congue eget urna.',
       },
       {
         title: 'Item 2',
-        panel:
+        panelContent:
           'Maecenas sed efficitur nisl. Ut laoreet suscipit nunc, ac euismod elit posuere vestibulum. In id turpis at diam pulvinar consectetur non sed tellus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla ac accumsan eros. Nam nisi augue, efficitur id pharetra sodales, aliquam in neque.',
       },
       {
         title: 'Item 3',
-        panel:
+        panelContent:
           'Maecenas sed efficitur nisl. Ut laoreet suscipit nunc, ac euismod elit posuere vestibulum. In id turpis at diam pulvinar consectetur non sed tellus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla ac accumsan eros. Nam nisi augue, efficitur id pharetra sodales, aliquam in neque.',
       },
     ],
