@@ -1,6 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 import { Button } from './Button';
+import { ButtonProps } from './button.interface';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBell, faGhost } from '@fortawesome/free-solid-svg-icons';
+import colors from '../../../colors';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -33,6 +37,7 @@ export const Primary: Story = {
   args: {
     color: 'primary',
     label: 'Primary',
+    ariaLabel: 'Primary',
   },
 };
 
@@ -40,6 +45,7 @@ export const Secondary: Story = {
   args: {
     color: 'secondary',
     label: 'Secondary',
+    ariaLabel: 'Secondary',
   },
 };
 
@@ -47,6 +53,7 @@ export const Success: Story = {
   args: {
     color: 'success',
     label: 'Success',
+    ariaLabel: 'Success',
   },
 };
 
@@ -54,6 +61,7 @@ export const Warning: Story = {
   args: {
     color: 'warning',
     label: 'Warning',
+    ariaLabel: 'Warning',
   },
 };
 
@@ -61,6 +69,7 @@ export const Error: Story = {
   args: {
     color: 'error',
     label: 'Error',
+    ariaLabel: 'Error',
   },
 };
 
@@ -69,6 +78,7 @@ export const Large: Story = {
     color: 'primary',
     size: 'large',
     label: 'Large',
+    ariaLabel: 'Large',
     rounded: false,
   },
 };
@@ -78,6 +88,7 @@ export const Medium: Story = {
     color: 'primary',
     size: 'medium',
     label: 'Medium',
+    ariaLabel: 'Medium',
     rounded: false,
   },
 };
@@ -87,6 +98,7 @@ export const Small: Story = {
     color: 'primary',
     size: 'small',
     label: 'Small',
+    ariaLabel: 'Small',
     rounded: false,
   },
 };
@@ -96,7 +108,8 @@ export const Rounded: Story = {
     rounded: true,
     color: 'primary',
     size: 'small',
-    label: 'Small',
+    label: 'Rounded',
+    ariaLabel: 'Rounded',
   },
 };
 
@@ -106,6 +119,7 @@ export const Outlined: Story = {
     color: 'primary',
     size: 'medium',
     label: 'Outlined',
+    ariaLabel: 'Outlined',
     variant: 'outlined',
   },
 };
@@ -116,6 +130,39 @@ export const Text: Story = {
     color: 'primary',
     size: 'medium',
     label: 'Text',
+    ariaLabel: 'Text',
     variant: 'text',
   },
+};
+
+export const WithIcon = {
+  args: {
+    variant: 'outlined',
+    color: 'secondary',
+    label: 'Pacman',
+    ariaLabel: 'Pacman',
+    isButtonIcon: 'false',
+    endSlot: (
+      <FontAwesomeIcon
+        className="endSlot"
+        icon={faGhost}
+        color={colors.white}
+      />
+    ),
+  },
+  render: (args: ButtonProps) => <Button {...args} />,
+};
+
+export const ButtonIcon = {
+  args: {
+    ariaLabel: 'Notification',
+    variant: 'contained',
+    color: 'secondary',
+    rounded: true,
+    isButtonIcon: true,
+    icon: (
+      <FontAwesomeIcon className="endSlot" icon={faBell} color={colors.white} />
+    ),
+  },
+  render: (args: ButtonProps) => <Button {...args} />,
 };
