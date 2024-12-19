@@ -1,6 +1,45 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Accordion from './Accordion';
 
+const accordionItems = [
+  {
+    title: 'Item 1',
+    children: (
+      <p>
+        Maecenas sed efficitur nisl. Ut laoreet suscipit nunc, ac euismod elit
+        posuere vestibulum. In id turpis at diam pulvinar consectetur non sed
+        tellus. Pellentesque habitant morbi tristique senectus et netus et
+        malesuada fames ac turpis egestas. Nulla ac accumsan eros. Nam nisi
+        augue, efficitur id pharetra sodales, aliquam in neque.
+      </p>
+    ),
+  },
+  {
+    title: 'Item 2',
+    children: (
+      <p>
+        Maecenas sed efficitur nisl. Ut laoreet suscipit nunc, ac euismod elit
+        posuere vestibulum. In id turpis at diam pulvinar consectetur non sed
+        tellus. Pellentesque habitant morbi tristique senectus et netus et
+        malesuada fames ac turpis egestas. Nulla ac accumsan eros. Nam nisi
+        augue, efficitur id pharetra sodales, aliquam in neque.
+      </p>
+    ),
+  },
+  {
+    title: 'Item 3',
+    children: (
+      <p>
+        Maecenas sed efficitur nisl. Ut laoreet suscipit nunc, ac euismod elit
+        posuere vestibulum. In id turpis at diam pulvinar consectetur non sed
+        tellus. Pellentesque habitant morbi tristique senectus et netus et
+        malesuada fames ac turpis egestas. Nulla ac accumsan eros. Nam nisi
+        augue, efficitur id pharetra sodales, aliquam in neque.
+      </p>
+    ),
+  },
+];
+
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
   title: 'Molecules/Accordion',
@@ -23,25 +62,16 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Primary: Story = {
+export const Horizontal: Story = {
   args: {
-    headingLevel: 'h3',
-    items: [
-      {
-        title: 'Item 1',
-        panelContent:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dapibus sit amet sapien sit amet semper. Nulla ullamcorper dignissim quam, a aliquam velit rhoncus at. Nulla et ante hendrerit, accumsan lectus et, suscipit metus. Sed euismod, felis at sagittis pretium, tellus nulla dignissim quam, commodo euismod purus enim at libero. Phasellus in feugiat mauris. Maecenas non dolor quis nisl dignissim auctor. Aenean purus mauris, dapibus id pharetra eu, congue eget urna.',
-      },
-      {
-        title: 'Item 2',
-        panelContent:
-          'Maecenas sed efficitur nisl. Ut laoreet suscipit nunc, ac euismod elit posuere vestibulum. In id turpis at diam pulvinar consectetur non sed tellus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla ac accumsan eros. Nam nisi augue, efficitur id pharetra sodales, aliquam in neque.',
-      },
-      {
-        title: 'Item 3',
-        panelContent:
-          'Maecenas sed efficitur nisl. Ut laoreet suscipit nunc, ac euismod elit posuere vestibulum. In id turpis at diam pulvinar consectetur non sed tellus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla ac accumsan eros. Nam nisi augue, efficitur id pharetra sodales, aliquam in neque.',
-      },
-    ],
+    items: accordionItems,
+    variant: 'horizontal',
+  },
+};
+
+export const Vertical: Story = {
+  args: {
+    items: accordionItems,
+    variant: 'vertical',
   },
 };
