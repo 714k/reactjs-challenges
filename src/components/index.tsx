@@ -1,4 +1,4 @@
-import { Button, Icon, HeadingTag } from './atoms';
+import { Button, Chip, Icon, HeadingTag } from './atoms';
 import {
   Accordion,
   AccordionItem,
@@ -14,6 +14,7 @@ export {
   Accordion,
   AccordionItem,
   Button,
+  Chip,
   Icon,
   HeadingTag,
   Header,
