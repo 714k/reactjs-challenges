@@ -6,8 +6,8 @@ import corn from './corn';
 import tartOrange from './tart-orange';
 
 const colors = {
-  white: 'FFF',
-  black: '000',
+  white: 'white',
+  black: 'black',
   primary: {
     light: darkElectricBlue[100],
     main: darkElectricBlue[500],

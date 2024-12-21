@@ -28,16 +28,18 @@ export interface ButtonProps {
   /**
    * Label of the button
    */
-  label?: string /**
+  label?: string;
+  /**
    * Label of the button
-   */;
+   */
   ariaLabel?: string;
   /**
-   * Add icon at the start of the Button
+   * Add element at the start of the Button
    */
-  startSlot?: ReactElement /**
+  startSlot?: ReactElement;
+  /**
    * Add icon at the end of the Button
-   */;
+   */
   endSlot?: ReactElement;
   /** The button contains only icon
    */

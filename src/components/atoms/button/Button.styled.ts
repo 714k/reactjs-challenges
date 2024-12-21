@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import colors from '../../../colors';
 
 type StyledButtonProps = {
-  isButtonIcon: boolean;
+  'data-is-button-icon': boolean;
   'aria-label': string | undefined;
 };
 
