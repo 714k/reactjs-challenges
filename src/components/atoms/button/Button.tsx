@@ -36,7 +36,7 @@ export const Button = ({
       type="button"
       style={style}
       className={classNames}
-      isButtonIcon={isButtonIcon}
+      data-is-button-icon={isButtonIcon}
       aria-label={
         isButtonIcon ? `icon ${icon?.props.icon.iconName}` : ariaLabel
       }
