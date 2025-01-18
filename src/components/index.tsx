@@ -1,4 +1,4 @@
-import { Button, Chip, Icon, HeadingTag } from './atoms';
+import { Button, Chip, Icon, HeadingTag, Textfield } from './atoms';
 import {
   Accordion,
   AccordionItem,
@@ -23,4 +23,5 @@ export {
   ToggleSwitch,
   SidePanel,
   Content,
+  Textfield,
 };

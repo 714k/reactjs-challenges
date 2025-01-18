@@ -4,6 +4,7 @@ import apple from './apple';
 import cerulean from './cerulean';
 import corn from './corn';
 import tartOrange from './tart-orange';
+import gray from './gray';
 
 const colors = {
   white: 'white',
@@ -44,6 +45,17 @@ const colors = {
     dark: apple[700],
     darker: apple[900],
   },
+  disabled: {
+    background: gray[20],
+    border: gray[40],
+    label: gray[60],
+    placeholder: gray[60],
+  },
+  readOnly: {
+    background: 'white',
+    border: gray[50],
+  },
+  gray,
 };
 
 export default colors;
