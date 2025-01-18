@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Chip from './Chip';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleUser } from '@fortawesome/free-solid-svg-icons';
+import { faCircleUser, faLocation } from '@fortawesome/free-solid-svg-icons';
 
 const meta = {
   title: 'Atoms/Chip',
@@ -93,5 +93,14 @@ export const WithAvatar: Story = {
     color: 'primary',
     label: 'Avatar',
     startSlot: <FontAwesomeIcon className="startSlot" icon={faCircleUser} />,
+  },
+};
+export const WithIcon: Story = {
+  args: {
+    variant: 'filled',
+    color: 'primary',
+    size: 'medium',
+    label: 'With Icon',
+    startSlot: <FontAwesomeIcon className="startSlot" icon={faLocation} />,
   },
 };
