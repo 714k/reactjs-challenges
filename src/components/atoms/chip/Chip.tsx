@@ -4,7 +4,7 @@ import colors from '../../../colors';
 import { getClassNames } from '../../../utils';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
-import { Button } from '../button/Button';
+import Button from '../button/Button';
 
 type WrapperProps = {};
 

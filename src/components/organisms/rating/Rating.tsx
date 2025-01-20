@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import './StarRating.css';
+import './Rating.css';
 
-interface StarRatingI {
+interface RatingI {
   size: number;
   ratingText: string;
   numberOfStars: number;
@@ -53,11 +53,11 @@ const Input = styled('input')<InputProps>`
   );
 `;
 
-export default function StarRating({
+export default function Rating({
   ratingText = 'Rating',
   numberOfStars = 5,
   size = 30,
-}: StarRatingI) {
+}: RatingI) {
   const stars = [...Array(numberOfStars).keys()];
 
   return (

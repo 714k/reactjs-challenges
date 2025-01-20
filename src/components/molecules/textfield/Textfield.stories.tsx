@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Textfield from './Textfield';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
-import { Button } from '../button/Button';
+import { faEye } from '@fortawesome/free-solid-svg-icons';
+import { Button } from '../../atoms';
 
 const meta = {
-  title: 'Atoms/Textfield',
+  title: 'Molecules/Textfield',
   component: Textfield,
   parameters: {
     layout: 'centered',

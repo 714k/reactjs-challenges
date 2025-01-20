@@ -1,8 +1,7 @@
-import Accordion from './accordion/Accordion';
-import AccordionItem from './accordion/AccordionItem';
-import Header from '../header/Header';
+import AccordionItem from './accordion-item/AccordionItem';
+import Avatar from './avatar/Avatar';
 import List from './list/List';
-import StarRating from './star-rating/StarRating';
 import { ToggleSwitch } from './toggle-switch/ToggleSwitch';
+import Textfield from './textfield/Textfield';
 
-export { Accordion, AccordionItem, Header, List, StarRating, ToggleSwitch };
+export { AccordionItem, Avatar, List, ToggleSwitch, Textfield };

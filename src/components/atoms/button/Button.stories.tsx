@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Button } from './Button';
-import { ButtonProps } from './button.interface';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBell, faGhost } from '@fortawesome/free-solid-svg-icons';
-
+import Button from './Button';
+import { ButtonProps } from './button.interface';
+import { ATOMIC_DESIGN } from '../../../constants';
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
   title: 'Atoms/Button',
