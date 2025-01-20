@@ -27,7 +27,7 @@ export const Default: Story = {
   args: {
     variant: 'circle',
     size: 'small',
-    children: 'Victor Zamudio',
+    children: 'victor zamudio',
   },
 };
 export const Medium: Story = {
