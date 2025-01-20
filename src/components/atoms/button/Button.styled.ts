@@ -9,7 +9,7 @@ type StyledButtonProps = {
 export const StyledButton = styled('button')<StyledButtonProps>`
   border: none;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   gap: 12px;
   width: 100%;
 
@@ -28,7 +28,6 @@ export const StyledButton = styled('button')<StyledButtonProps>`
     padding: 0;
     width: 30px;
     height: 30px;
-    justify-content: center;
     align-items: center;
 
     &.medium {

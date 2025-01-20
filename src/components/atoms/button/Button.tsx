@@ -6,7 +6,7 @@ import './button.css';
 /**
  * BUtton component for user interaction
  */
-export const Button = ({
+export default function Button({
   classnames,
   color = 'primary',
   style,
@@ -21,7 +21,7 @@ export const Button = ({
   icon,
   onClick,
   ...props
-}: ButtonProps) => {
+}: ButtonProps) {
   const classNames = getClassNames([
     color,
     size,
@@ -49,4 +49,4 @@ export const Button = ({
       {!isButtonIcon && endSlot}
     </StyledButton>
   );
-};
+}
